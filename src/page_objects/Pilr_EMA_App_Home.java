@@ -2,7 +2,7 @@ package page_objects;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-public class Pilr_EMA_App_Home {
+public class Pilr_EMA_App_Home extends AbstractBasePage {
 	WebDriver driver;
 	
 	By EmaappPageWelcome = By.cssSelector("h4[class='lighter smaller']");
@@ -13,8 +13,7 @@ public class Pilr_EMA_App_Home {
 	By complianceLink = By.linkText("Compliance");
 	
 	public Pilr_EMA_App_Home(WebDriver driver){
-		 
-	       this.driver = driver;
+	       super(driver);
 	   }
 	//Get the EMA App Page Welcome
     public String getEMAAppPageWelcome(){
@@ -22,7 +21,7 @@ public class Pilr_EMA_App_Home {
     }
     //Navigate to the Survey Response Page
     public Pilr_Survey_ResponsePage selectSurvResponse() {
-  	  driver.findElement(SurvResponseLink).click();
+  	  findElement(SurvResponseLink).click();
   	  System.out.println("[Page Object]Select Survey Reponse Link");
   	  return new Pilr_Survey_ResponsePage(driver);
     }
