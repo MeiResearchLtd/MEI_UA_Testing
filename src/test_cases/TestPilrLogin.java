@@ -1,8 +1,5 @@
 package test_cases;
 
-import org.junit.*;
-import static org.junit.Assert.*;
-
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import org.testng.annotations.AfterTest;
