@@ -29,7 +29,7 @@ public class PilrHomePage extends AbstractBasePage {
 	    	  this.project = prjct;
 		      System.out.println("[Page Object]Select Project");
 	    	  findElement(PilrChooseProj).click();
-	    	  findElement(By.id("project"+project)).click();
+	    	  findElement(By.id("project" + project)).click();
 	    	  return new Pilr_CoordinatePage(driver);
 	      }
 	      //Select an organization to work on

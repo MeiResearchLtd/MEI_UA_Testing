@@ -166,7 +166,7 @@ public class AbstractTestCase {
 		}
 	}
 
-	@Test(priority = 0)
+	//@Test(priority = 0)
 	public void setup1() throws Exception {
 		System.out.println("Working Directory = " + System.getProperty("user.dir"));
 

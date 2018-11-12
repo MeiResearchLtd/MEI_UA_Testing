@@ -4,7 +4,7 @@ import org.openqa.selenium.WebDriver;
 
 public class Pilr_EMA_App_Home extends AbstractBasePage {
 	
-	By EmaappPageWelcome = By.cssSelector("h4[class='lighter smaller']");
+	By EmaappPageWelcome = By.cssSelector("h4.lighter.smaller");
 	By SurvResponseLink = By.linkText("Survey Responses");
 	By ebuilderLink = By.linkText("Builder");
 	By applicationLink = By.linkText("Application");
@@ -16,7 +16,7 @@ public class Pilr_EMA_App_Home extends AbstractBasePage {
 	   }
 	//Get the EMA App Page Welcome
     public String getEMAAppPageWelcome(){
-        return driver.findElement(EmaappPageWelcome).getText();
+        return findElement(EmaappPageWelcome).getText();
     }
     //Navigate to the Survey Response Page
     public Pilr_Survey_ResponsePage selectSurvResponse() {
@@ -26,25 +26,25 @@ public class Pilr_EMA_App_Home extends AbstractBasePage {
     }
     //Navigate to the EMA Builder Page
     public Pilr_Builder_Page selectEMABuilder() {
-  	  driver.findElement(ebuilderLink).click();
+  	  findElement(ebuilderLink).click();
   	  System.out.println("[Page Object]Select EMA Builder Link");
   	  return new Pilr_Builder_Page(driver);
     }
     //Navigate to the EMA Application Page
     public Pilr_Application_Page selectEMAApplication() {
-  	  driver.findElement(applicationLink).click();
+  	  findElement(applicationLink).click();
   	  System.out.println("[Page Object]Select EMA Application Link");
   	  return new Pilr_Application_Page(driver);
     }
     //Navigate to the EMA Languages Page
     public Pilr_Languages_Page selectEMALanguages() {
-  	  driver.findElement(languagesLink).click();
+  	  findElement(languagesLink).click();
   	  System.out.println("[Page Object]Select EMA Languages Link");
   	  return new Pilr_Languages_Page(driver);
     }
     //Navigate to the EMA Compliance Page
     public Pilr_Compliance_Page selectEMACompliance() {
-  	  driver.findElement(complianceLink).click();
+		driver.findElement(complianceLink).click();
   	  System.out.println("[Page Object]Select EMA Compliance Link");
   	  return new Pilr_Compliance_Page(driver);
     }
