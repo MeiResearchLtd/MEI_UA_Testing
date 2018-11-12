@@ -1,17 +1,18 @@
 package page_objects;
 import org.openqa.selenium.By;
+import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 
 public class Bulk_Edit_Participants_Page extends AbstractBasePage {
 	By bulkEditPageWelcome = By.cssSelector("li[class='white bigger-150']");
-	By selectTemplateAssignment = By.cssSelector("select[id='search.templateAssignment']");
-	By selectAllCheckbox = By.cssSelector("input[id='editSelectAll']");
-	By selectEditButton	= By.cssSelector("button[id='dataTableEdit']");
-	By selectEditGroups = By.cssSelector("a[id='editGroupsModalTrigger']");
-	By selectEditDevices = By.cssSelector("a[id='editDevicesModalTrigger']");
-	By selectEditSchedule = By.cssSelector("a[id='editScheduleParticipantActivePeriodModalTrigger']");
+	By selectTemplateAssignment = By.id("search.templateAssignment");//By.cssSelector("select[id='search.templateAssignment']");
+	By selectAllCheckbox = By.id("editSelectAll");//By.cssSelector("input[id='editSelectAll']");
+	By selectEditButton	= By.id("dataTableEdit");//By.cssSelector("button[id='dataTableEdit']");
+	By selectEditGroups = By.id("editGroupsModalTrigger");//By.cssSelector("a[id='editGroupsModalTrigger']");
+	By selectEditDevices = By.id("editDevicesModalTrigger");//By.cssSelector("a[id='editDevicesModalTrigger']");
+	By selectEditSchedule = By.id("editScheduleParticipantActivePeriodModalTrigger");//By.cssSelector("a[id='editScheduleParticipantActivePeriodModalTrigger']");
 
 	public Bulk_Edit_Participants_Page(WebDriver driver){
 		super(driver);
@@ -30,6 +31,7 @@ public class Bulk_Edit_Participants_Page extends AbstractBasePage {
 		WebElement selector = findElement(selectTemplateAssignment);
 		selector.click();
 		selector.sendKeys(defaultassignments + "\r");
+		selector.click(); //important: this is to make the drop down lose focus and update list
 	}
 	//select Edit Button
 	public void select_Edit_Button(){
@@ -38,7 +40,7 @@ public class Bulk_Edit_Participants_Page extends AbstractBasePage {
 	}
 	//select Groups li under Edit Button (creates Bulk Update Group modal)
 	public Update_Group_Modal select_Edit_Groups(){
-		findElement(selectEditGroups).click();
+		findElement(selectEditGroups, 5000).click();
 		return new Update_Group_Modal(driver);
 	}
 	//select Groups li under Edit Button (creates Bulk Update Group modal)
