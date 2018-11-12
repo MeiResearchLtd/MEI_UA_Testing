@@ -111,7 +111,7 @@ public class AbstractTestCase {
 
 		String baseUrl = System.getProperty("pilr.base_url");
 		driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
-		driver.manage().window().maximize();
+		//driver.manage().window().maximize();
 		driver.get(baseUrl);
 		System.out.println("Title : " + driver.getTitle());
 
@@ -166,7 +166,7 @@ public class AbstractTestCase {
 		}
 	}
 
-	@Test(priority = 0)
+	//@Test(priority = 0)
 	public void setup1() throws Exception {
 		System.out.println("Working Directory = " + System.getProperty("user.dir"));
 
