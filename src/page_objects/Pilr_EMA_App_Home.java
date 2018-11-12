@@ -3,7 +3,6 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
 public class Pilr_EMA_App_Home extends AbstractBasePage {
-	WebDriver driver;
 	
 	By EmaappPageWelcome = By.cssSelector("h4.lighter.smaller");
 	By SurvResponseLink = By.linkText("Survey Responses");
