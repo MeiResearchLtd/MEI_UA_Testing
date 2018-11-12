@@ -1,5 +1,7 @@
 package test_cases;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 
@@ -266,8 +268,11 @@ public final class TestVars {
 		}
 		static private void loadProperties() {
 			// Read mei.properties from classpath
-			InputStream in = ClassLoader.getSystemResourceAsStream("mei.properties");
-			if (in == null) {
+			//InputStream in = ClassLoader.getSystemResourceAsStream("resource/mei.properties");
+			InputStream in;
+			try {
+				in = new FileInputStream("./resource/mei.properties");
+			} catch (FileNotFoundException e1) {
 				throw new RuntimeException("can't load mei.properites");
 			}
 			try {
