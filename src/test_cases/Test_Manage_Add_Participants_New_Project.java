@@ -76,7 +76,7 @@ public class Test_Manage_Add_Participants_New_Project extends AbstractTestCase {
 		
 		objBulkEditParticipants.select_Edit_All_Checkbox();
 		objBulkEditParticipants.select_Default_Assignment_Column(objtestvars.get_default_Assignments());
-		objTimeWait.Duration(1000);
+		objTimeWait.Duration(4000);
 		objBulkEditParticipants.select_Edit_Button();
 		objBulkEditParticipants.select_Edit_Groups();
 		objTimeWait.Duration(4000);
