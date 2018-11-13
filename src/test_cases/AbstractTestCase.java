@@ -375,6 +375,12 @@ public class AbstractTestCase {
 		objProjectSettings.selectInstrumentImport();
 
 	}
+	
+	@Test
+	public void test_Select_Instrument() {
+		objCoordinatePage = new Pilr_CoordinatePage(driver);
+		objCoordinatePage.selectEMAInstrument();
+	}
 
 	@Test
 	public void test_Select_EMA_App_Page() {
@@ -501,10 +507,12 @@ public class AbstractTestCase {
 		objConfigBuilder = new Pilr_Config_Builder(driver);
 
 		// navigate to survey response page
-		objEMABuilderPage.selectEMAConfig(objtestvars.getEmaConfig());
+		// TODO: pre-condition: need to create a config in the sample project before continuing
+ 		objEMABuilderPage.selectEMAConfig(objtestvars.getEmaConfig());
 
 		// verify that we landed on the EMA Builder page
 		Assert.assertTrue(
+				//TODO: this verification string is out of date.
 				objConfigBuilder.getconfigbuilderPageWelcome().toLowerCase().contains("ema configuration builder"));
 	}
 
