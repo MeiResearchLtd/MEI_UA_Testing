@@ -47,8 +47,8 @@ public class Test_New_Project_Wizard extends AbstractTestCase {
 	@Test
 	public void test_Set_New_Project_Duration(){
 		objProjectDuration = new Project_Wizard_Duration(driver);
-		//Assert.assertTrue(objProjectDuration.getDurationWelcome().toLowerCase()
-    	//		.contains("a little more help to get started quicker"));
+		Assert.assertTrue(objProjectDuration.getDurationWelcome().toLowerCase()
+    			.contains("a little more help to get started quicker"));
 		//select the Finish button to finish creating a project
 		objProjectDuration.selectFinish();
 	}
