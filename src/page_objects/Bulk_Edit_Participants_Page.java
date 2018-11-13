@@ -30,7 +30,7 @@ public class Bulk_Edit_Participants_Page extends AbstractBasePage {
 	public void select_Default_Assignment_Column(String defaultassignments){
 		WebElement selector = findElement(selectTemplateAssignment);
 		selector.click();
-		selector.sendKeys(defaultassignments + "\r");
+		selector.sendKeys(defaultassignments/* + "\r"*/);
 		selector.click(); //important: this is to make the drop down lose focus and update list
 	}
 	//select Edit Button
