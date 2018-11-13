@@ -289,7 +289,7 @@ public class AbstractTestCase {
 		// select the Project link based on the testvars project value
 		objHomePage.selectProject(objtestvars.getProject());
 		try {
-			Thread.sleep(10000);
+			Thread.sleep(2000);
 		} catch (InterruptedException ex) {
 			Thread.currentThread().interrupt();
 		}
