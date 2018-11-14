@@ -18,15 +18,17 @@ public class Pilr_Survey_Builder extends AbstractBasePage{
 	By activityStart2 = By.name("activities[2].start");
 	By activityStart3 = By.name("activities[3].start");
 	By activityLinkDropdown = By.cssSelector("li.select2-results-dept-0.select2-result.select2-result-selectable");
-	By activitySave = By.id("Save");
+	By activitySave = By.cssSelector("input[class='btn btn-primary pull-right']");//By.id("Save");
 	By configNavButton = By.linkText("New EMA Config");
 	String sec_refid = "123";
 	Actions action;
+	Time_Wait objTimeWait;
 	//need a selector for the trigger editor
 	//need a selector for the App Tabs cards (edit/delete)
 	public Pilr_Survey_Builder(WebDriver driver){
-		
-	       super(driver);
+			super(driver);
+			objTimeWait = new Time_Wait();
+			action = new Actions(driver); 
 	   }
 	//Get the Survey_Builder Page Welcome
     public String getsurveyBuilderWelcome(){
@@ -54,10 +56,11 @@ public class Pilr_Survey_Builder extends AbstractBasePage{
     }
     // Link survey to activity
     public void link_Activity(String surveyName) {
-    	action = new Actions(driver); 
+    	
     	findElement(activityLink0).click();
     	findElements(activityLinkDropdown).get(1).click();
-    	findElement(activitySave).click();
+    	objTimeWait.Duration(2000);
+    	action.moveToElement(findElement(activitySave)).click();
     }
     // Select start on first 4 activities
     public void select_start_activities() {
@@ -65,7 +68,8 @@ public class Pilr_Survey_Builder extends AbstractBasePage{
     	findElement(activityStart1).click();
     	findElement(activityStart2).click();
     	findElement(activityStart3).click();
-    	findElement(activitySave).click();
+    	objTimeWait.Duration(2000);
+    	action.moveToElement(findElement(activitySave)).click();
     }
     // Navigate back to config page
     public void nav_Config_Page() {
