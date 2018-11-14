@@ -29,6 +29,7 @@ import page_objects.Pilr_Project_Settings_Page;
 import page_objects.Pilr_Project_Wizard;
 import page_objects.Pilr_Survey_ResponsePage;
 import page_objects.Project_Details_Admin;
+import page_objects.Time_Wait;
 
 public class AbstractTestCase {
 	
@@ -53,12 +54,14 @@ public class AbstractTestCase {
 	Delete_Project_Modal objDeleteProjectModal;
 	String new_project_name = newProjName;
 	String pilr_org;
+	Time_Wait timewait;
 	// String ag_Health;
 
 	Import_EMA_Defs_Modal objImportModal;
 
 	public AbstractTestCase() {
 		super();
+		timewait = new Time_Wait();
 	}
 	
  	public void makeFreshNewProjectName(){
@@ -403,8 +406,9 @@ public class AbstractTestCase {
 
 		// verify that we landed on survey response page
 		Assert.assertTrue(objSurvResponsePage.getSurvey_ResponsePageWelcome().toLowerCase()
-				.contains(" view participant survey responses"));
-		objCoordinatePage.browseData();
+				.contains("survey responses"));
+		//vic: comment out out of date step
+		//objCoordinatePage.browseData();
 	}
 
 	@Test
@@ -650,6 +654,7 @@ public class AbstractTestCase {
 		objProjectDetailsAdmin.saveFeatures();
 
 		System.out.println("Check features");
+		timewait.Duration(2000);
 		System.out.println(objProjectDetailsAdmin.getFeatures().toLowerCase());
 		// This fails intermittently. 
 		Assert.assertTrue(objProjectDetailsAdmin.getFeatures().toLowerCase().contains("v2_api,activity"));

@@ -39,6 +39,7 @@ public class Test_Browse_Data extends AbstractTestCase {
 		objProjectData.selectSearch();
 		Assert.assertTrue(objProjectData.getSummaryResults().toLowerCase()
 				.contains("search results"));
+		//the following steps may fail because there is no data for the project
 		objProjectData.launchDataViewer();
 		for (String winHandle : driver.getWindowHandles()) {
 		    driver.switchTo().window(winHandle); // switch focus of WebDriver to the next found window handle (that's your newly opened window)

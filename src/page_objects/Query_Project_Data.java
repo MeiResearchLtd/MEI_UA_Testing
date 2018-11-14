@@ -2,6 +2,7 @@ package page_objects;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.interactions.Actions;
 
 public class Query_Project_Data {
 	WebDriver driver;
@@ -11,9 +12,9 @@ public class Query_Project_Data {
 	By dateStart = By.cssSelector("input[name='daterangepicker_start']");
 	By dateEnd = By.cssSelector("input[name='daterangepicker_end']");
 	By applyButton = By.cssSelector("button[class='applyBtn btn btn-sm btn-success']");
-	By selectEnrolled = By.cssSelector("option[value='template_assignments_enrolled']");
+	By selectEnrolled = By.cssSelector("option[value='enrolled']");
 	By searchButton = By.cssSelector("button[id='searchBtn']");
-	By divSummaryResults = By.cssSelector("div h4");
+	By divSummaryResults = By.cssSelector("div.widget-header h4");
 	By launchDataViewer = By.cssSelector("i[class='icon-share']");
 	By dv_Survey_Code = By.cssSelector("input[id='search.data.survey_code']");
 	By dv_Survey_EventType	= By.cssSelector("input[id='search.data.event_type']");
@@ -21,10 +22,12 @@ public class Query_Project_Data {
 	By firstFile = By.xpath("//td/a");
 	By fileOutputMessage = By.cssSelector("div[class='alert alert-info']");
 	private String startDate, endDate;
+	private Actions action;
 	
 	
 	public Query_Project_Data(WebDriver driver){
 		this.driver = driver;
+		action = new Actions(driver);
 	}
 	
 	//provide the welcome message
@@ -34,7 +37,7 @@ public class Query_Project_Data {
 	
 	//select the Date Picker Group field and pick the group
 	public void selectGroup(){
-		driver.findElement(selectGroup).click();
+		action.moveToElement(driver.findElement(selectGroup)).click();
 		driver.findElement(selectEnrolled).click();
 	}
 	
