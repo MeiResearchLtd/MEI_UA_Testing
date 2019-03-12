@@ -8,7 +8,7 @@ public class Pilr_CoordinatePage {
 	   private String part_code = "992";
 	   By coordinatePageWelcome = By.cssSelector("i.icon-double-angle-right");
 	   By AddParticipant = By.id("addParticipant");
-	   By EMAInstrument = By.xpath("//a[@id='navInstrumentsPiLREMAApp']/div/span");
+	   By EMAInstrument = By.xpath("//a[@id='navInstrumentsPiLREMAApp']/div/span[1]");
 	   By ViewGroups = By.id("navManagementGroupCategories");
 	   By ParticipantDetail = By.id("show" + part_code);
 	   By ProjectSettings = By.cssSelector("i[class='icon-cogs']");

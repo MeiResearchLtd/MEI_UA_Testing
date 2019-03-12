@@ -7,7 +7,7 @@ import org.openqa.selenium.WebElement;
 
 public class Bulk_Edit_Participants_Page extends AbstractBasePage {
 	By bulkEditPageWelcome = By.cssSelector("li[class='white bigger-150']");
-	By selectTemplateAssignment = By.id("search.templateAssignment");//By.cssSelector("select[id='search.templateAssignment']");
+	By selectTemplateAssignment = By.cssSelector(".tableFloatingHeaderOriginal #search\\.templateAssignment");
 	By selectAllCheckbox = By.id("editSelectAll");//By.cssSelector("input[id='editSelectAll']");
 	By selectEditButton	= By.id("dataTableEdit");//By.cssSelector("button[id='dataTableEdit']");
 	By selectEditGroups = By.id("editGroupsModalTrigger");//By.cssSelector("a[id='editGroupsModalTrigger']");
@@ -27,11 +27,12 @@ public class Bulk_Edit_Participants_Page extends AbstractBasePage {
 		findElement(selectAllCheckbox).click();
 	}
 	//select default template in template assignments column
-	public void select_Default_Assignment_Column(String defaultassignments){
-		WebElement selector = findElement(selectTemplateAssignment);
-		selector.click();
-		selector.sendKeys(defaultassignments/* + "\r"*/);
-		selector.click(); //important: this is to make the drop down lose focus and update list
+	public void select_Default_Assignment_Column(String defaultAssignments){
+		dropDownSelect(selectTemplateAssignment, defaultAssignments);
+//		WebElement selector = findElement(selectTemplateAssignment);
+//		selector.click();
+//		selector.sendKeys(defaultassignments + "\r");
+//		selector.click(); //important: this is to make the drop down lose focus and update list
 	}
 	//select Edit Button
 	public void select_Edit_Button(){

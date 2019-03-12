@@ -1,9 +1,10 @@
 package page_objects;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 
 public class Pilr_EMA_App_Home extends AbstractBasePage {
-	
+		
 	By EmaappPageWelcome = By.cssSelector("h4.lighter.smaller");
 	By SurvResponseLink = By.linkText("Survey Responses");
 	By ebuilderLink = By.linkText("Builder");
@@ -14,9 +15,14 @@ public class Pilr_EMA_App_Home extends AbstractBasePage {
 	public Pilr_EMA_App_Home(WebDriver driver){
 	       super(driver);
 	   }
+	
+	public WebElement activeNavTab() {
+		return findElement(By.cssSelector(".page-header ul.nav li.active a"));
+	}
+	
 	//Get the EMA App Page Welcome
     public String getEMAAppPageWelcome(){
-        return findElement(EmaappPageWelcome).getText();
+        return activeNavTab().getText();
     }
     //Navigate to the Survey Response Page
     public Pilr_Survey_ResponsePage selectSurvResponse() {

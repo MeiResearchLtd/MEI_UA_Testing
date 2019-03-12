@@ -10,7 +10,7 @@ import pilrhealth.com.ua.util.Retriable;
 
 public class AbstractBasePage {
 		
-	private static final int DEFAULT_TIMEOUT = 15000;
+	private static final int DEFAULT_TIMEOUT = 30000;
 	protected WebDriver driver;
 
 	public AbstractBasePage(WebDriver driver) {
@@ -39,6 +39,15 @@ public class AbstractBasePage {
 	}
 	protected List<WebElement> findElements(By by) {
 		return findElements(by, DEFAULT_TIMEOUT);
+	}
+	
+	protected void dropDownSelect(By menuSelector, String item) {
+		WebElement selector = findElement(menuSelector);
+		selector.click();
+		selector.sendKeys(item + "\r");
+		//selector.click(); //important: this is to make the drop down lose focus and update list
+		// but it may fail because element is not attached to page.  Better to click on some other
+		// element. What?
 	}
 
 }

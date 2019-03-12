@@ -7,7 +7,7 @@ public class Section_Modal {
 	By Section_Name = By.cssSelector("input[name='name']");
 	By Description = By.cssSelector("textarea[name='description']");
 	By sectionModalWelcome = By.cssSelector("div[class='table-header']"); 
-	By Create_Button = By.cssSelector("button[name='create']");
+	By Create_Button = By.cssSelector("#addSurveySectionModal button.btn-primary[name='submit']");
 	By Refid = By.cssSelector("input[name='code']");
 	String section_name = "test name";
 	String section_description = "section description";

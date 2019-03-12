@@ -364,7 +364,8 @@ public class AbstractTestCase {
 		System.out.println("[Test Case]Select Instrument");
 
 		// verify that the correct project Coordinate Page is displayed
-		Assert.assertTrue(objEMAAppPage.getEMAAppPageWelcome().toLowerCase().contains("participant summaries"));
+		Assert.assertEquals(objEMAAppPage.activeNavTab().getText(), 
+				"Survey Responses");
 
 	}
 
@@ -388,12 +389,10 @@ public class AbstractTestCase {
 	@Test
 	public void test_Select_EMA_App_Page() {
 		objEMAAppPage = new Pilr_EMA_App_Home(driver);
-		objSurvResponsePage = new Pilr_Survey_ResponsePage(driver);
 
 		// Verify location
-		String result = objEMAAppPage.getEMAAppPageWelcome();
-
-		Assert.assertTrue(result.toLowerCase().contains("participant summaries"));
+		Assert.assertEquals(objEMAAppPage.activeNavTab().getText(), 
+				"Survey Responses");
 	}
 
 	@Test
