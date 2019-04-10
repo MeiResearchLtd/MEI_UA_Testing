@@ -6,6 +6,9 @@ Some info on setting up your environment is
 
 In addition, create a mei.properties for your environment using mei.properties.example. Make sure Create the user and org exists and have correct passwords.
 
+## Guidelines
+It doesn't currently work this way, but...
+
 ## Important Notes
 * Currently requires that ua_test org has already imported component https://github.com/pilrhealth/definition-files/raw/master/premium/PiLR%20EMA/auto-create-sample-project-bundle.json
 
